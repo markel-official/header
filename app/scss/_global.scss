@@ -1,0 +1,68 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	font: inherit;
+}
+
+body {
+	min-width: 320px;
+	overflow-x: hidden;
+	font-family: $mainFont;
+	font-weight: 400;
+	font-style: normal;
+}
+
+input,
+input:focus,
+input:active {
+	outline: none;
+	border: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	outline: none;
+	text-decoration: none;
+	color: inherit;
+}
+
+textarea {
+	resize: none;
+}
+
+button {
+	border: none;
+	outline: none;
+}
+
+
+// Import mixins
+@import 'mixin';
+
+
+
+
+/* Global Styles */
+/* Don't forget to add x2 padding-x to max-width(Cause of box-sizing) */
+.container {
+	max-width: (1170px + 10px*2);
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+.hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+}

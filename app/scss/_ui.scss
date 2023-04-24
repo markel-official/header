@@ -1,0 +1,115 @@
+.burger-btn {
+	position: relative;
+	width: 30px;
+	height: 24px;
+	cursor: pointer;
+
+	&__line {
+		position: absolute;
+		height: 1px;
+		background-color: currentColor;
+
+		&:nth-child(1) {
+			left: 4px;
+			right: 4px;
+			top: 4px;
+			// Scaling to prevent rare bug described here https://stackoverflow.com/questions/40843657/css-pseudo-element-changes-height-when-moving-its-position 
+			transform: scaleY(1.001);
+			transition: opacity 0.35s ease-out;
+		}
+
+		&:nth-child(2) {
+			left: 4px;
+			right: 4px;
+			top: 50%;
+			transform: translate(0%, -50%) scaleY(1.001);
+			transition: opacity 0.35s ease-out;
+		}
+
+		&:nth-child(3) {
+			left: 4px;
+			right: 4px;
+			bottom: 4px;
+			transform: scaleY(1.001);
+			transition: opacity 0.35s ease-out;
+		}
+
+		&:nth-child(4) {
+			left: 50%;
+			top: 50%;
+			width: 80%;
+			transform: translate(-50%, -50%) rotate(45deg);
+			opacity: 0;
+			transition: opacity 0.35s ease-out;
+		}
+
+		&:nth-child(5) {
+			left: 50%;
+			top: 50%;
+			width: 80%;
+			transform: translate(-50%, -50%) rotate(-45deg);
+			opacity: 0;
+			transition: opacity 0.35s ease-out;
+		}
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		.burger-btn__line {
+
+			&:nth-child(1),
+			&:nth-child(2),
+			&:nth-child(3) {
+				opacity: 0;
+			}
+
+			&:nth-child(4) {
+				opacity: 1;
+			}
+
+			&:nth-child(5) {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.burger-btn--white {
+	color: $colorBlack;
+	background-color: #cccccc;
+}
+
+.burger-btn--yellow {
+	color: $colorBlack;
+	background-color: #FFCC00;
+}
+
+.close-btn {
+	display: none;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	outline: none;
+
+	.close-btn__line {
+		&:nth-child(1) {
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+
+		&:nth-child(2) {
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+	}
+}
+
+.close-btn__line {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 100%;
+	height: 1px;
+	background-color: $colorDark;
+}
